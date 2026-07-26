@@ -43,7 +43,7 @@ jobs:
       KEEP_CONFIG: ${{ secrets.KEEP_CONFIG }}
       NOTIONHUB_API_BASE: https://i.notionhub.app/v1
       NOTIONHUB_SERVICE: keep
-      NOTIONHUB_CONFIG_VERSION: '31'
+      NOTIONHUB_CONFIG_VERSION: '32'
       SYNC_POLICY_STATE_PATH: ${{ github.workspace }}/notionhub-state.json
       SYNC_POLICY_CONTINUATION_PATH: ${{ github.workspace }}/notionhub-continuation-id
       SYNC_POLICY_REPORT_PATH: ${{ github.workspace }}/notionhub-service-report.json
@@ -246,7 +246,7 @@ jobs:
         id: job_config
         if: steps.progress.outcome == 'success'
         run: |
-          SERVICE_CONFIG='${{ secrets.KEEP_CONFIG }}'
+          SERVICE_CONFIG="$KEEP_CONFIG"
           PLAN=$(printf '%s' "$SERVICE_CONFIG" | jq -r '.KEEP_SYNC_PLAN // "lifetime"')
           JOB_ENABLED=true
           SKIP_REASON=""
@@ -364,7 +364,7 @@ jobs:
       KEEP_CONFIG: ${{ secrets.KEEP_CONFIG }}
       NOTIONHUB_API_BASE: https://i.notionhub.app/v1
       NOTIONHUB_SERVICE: keep
-      NOTIONHUB_CONFIG_VERSION: '31'
+      NOTIONHUB_CONFIG_VERSION: '32'
       SYNC_POLICY_STATE_PATH: ${{ github.workspace }}/notionhub-state.json
       SYNC_POLICY_CONTINUATION_PATH: ${{ github.workspace }}/notionhub-continuation-id
       SYNC_POLICY_REPORT_PATH: ${{ github.workspace }}/notionhub-service-report.json
@@ -382,7 +382,7 @@ jobs:
         id: job_config
         if: needs.workout.outputs.enabled == 'true' && needs.workout.result == 'success' && steps.restore.outcome == 'success'
         run: |
-          SERVICE_CONFIG='${{ secrets.KEEP_CONFIG }}'
+          SERVICE_CONFIG="$KEEP_CONFIG"
           PLAN=$(printf '%s' "$SERVICE_CONFIG" | jq -r '.KEEP_SYNC_PLAN // "lifetime"')
           JOB_ENABLED=true
           SKIP_REASON=""
@@ -631,7 +631,7 @@ jobs:
       KEEP_CONFIG: ${{ secrets.KEEP_CONFIG }}
       NOTIONHUB_API_BASE: https://i.notionhub.app/v1
       NOTIONHUB_SERVICE: keep
-      NOTIONHUB_CONFIG_VERSION: '31'
+      NOTIONHUB_CONFIG_VERSION: '32'
       SYNC_POLICY_STATE_PATH: ${{ github.workspace }}/notionhub-state.json
       SYNC_POLICY_CONTINUATION_PATH: ${{ github.workspace }}/notionhub-continuation-id
       SYNC_POLICY_REPORT_PATH: ${{ github.workspace }}/notionhub-service-report.json
@@ -649,7 +649,7 @@ jobs:
         id: job_config
         if: needs.workout.outputs.enabled == 'true' && needs.sleep.result == 'success' && steps.restore.outcome == 'success'
         run: |
-          SERVICE_CONFIG='${{ secrets.KEEP_CONFIG }}'
+          SERVICE_CONFIG="$KEEP_CONFIG"
           PLAN=$(printf '%s' "$SERVICE_CONFIG" | jq -r '.KEEP_SYNC_PLAN // "lifetime"')
           JOB_ENABLED=true
           SKIP_REASON=""
@@ -898,7 +898,7 @@ jobs:
       KEEP_CONFIG: ${{ secrets.KEEP_CONFIG }}
       NOTIONHUB_API_BASE: https://i.notionhub.app/v1
       NOTIONHUB_SERVICE: keep
-      NOTIONHUB_CONFIG_VERSION: '31'
+      NOTIONHUB_CONFIG_VERSION: '32'
       SYNC_POLICY_STATE_PATH: ${{ github.workspace }}/notionhub-state.json
       SYNC_POLICY_CONTINUATION_PATH: ${{ github.workspace }}/notionhub-continuation-id
       SYNC_POLICY_REPORT_PATH: ${{ github.workspace }}/notionhub-service-report.json
@@ -916,7 +916,7 @@ jobs:
         id: job_config
         if: needs.workout.outputs.enabled == 'true' && needs.heart_rate.result == 'success' && steps.restore.outcome == 'success'
         run: |
-          SERVICE_CONFIG='${{ secrets.KEEP_CONFIG }}'
+          SERVICE_CONFIG="$KEEP_CONFIG"
           PLAN=$(printf '%s' "$SERVICE_CONFIG" | jq -r '.KEEP_SYNC_PLAN // "lifetime"')
           JOB_ENABLED=true
           SKIP_REASON=""
@@ -1165,7 +1165,7 @@ jobs:
       KEEP_CONFIG: ${{ secrets.KEEP_CONFIG }}
       NOTIONHUB_API_BASE: https://i.notionhub.app/v1
       NOTIONHUB_SERVICE: keep
-      NOTIONHUB_CONFIG_VERSION: '31'
+      NOTIONHUB_CONFIG_VERSION: '32'
       SYNC_POLICY_STATE_PATH: ${{ github.workspace }}/notionhub-state.json
       SYNC_POLICY_CONTINUATION_PATH: ${{ github.workspace }}/notionhub-continuation-id
       SYNC_POLICY_REPORT_PATH: ${{ github.workspace }}/notionhub-service-report.json
@@ -1183,7 +1183,7 @@ jobs:
         id: job_config
         if: needs.workout.outputs.enabled == 'true' && needs.vo2max.result == 'success' && steps.restore.outcome == 'success'
         run: |
-          SERVICE_CONFIG='${{ secrets.KEEP_CONFIG }}'
+          SERVICE_CONFIG="$KEEP_CONFIG"
           PLAN=$(printf '%s' "$SERVICE_CONFIG" | jq -r '.KEEP_SYNC_PLAN // "lifetime"')
           JOB_ENABLED=true
           SKIP_REASON=""
@@ -1432,7 +1432,7 @@ jobs:
       KEEP_CONFIG: ${{ secrets.KEEP_CONFIG }}
       NOTIONHUB_API_BASE: https://i.notionhub.app/v1
       NOTIONHUB_SERVICE: keep
-      NOTIONHUB_CONFIG_VERSION: '31'
+      NOTIONHUB_CONFIG_VERSION: '32'
       SYNC_POLICY_STATE_PATH: ${{ github.workspace }}/notionhub-state.json
       SYNC_POLICY_CONTINUATION_PATH: ${{ github.workspace }}/notionhub-continuation-id
       SYNC_POLICY_REPORT_PATH: ${{ github.workspace }}/notionhub-service-report.json
@@ -1452,7 +1452,7 @@ jobs:
         if: needs.workout.outputs.enabled == 'true' && needs.blood_oxygen.result == 'success' && steps.restore.outcome == 'success'
         continue-on-error: true
         run: |
-          SERVICE_CONFIG='${{ secrets.KEEP_CONFIG }}'
+          SERVICE_CONFIG="$KEEP_CONFIG"
           PLAN=$(printf '%s' "$SERVICE_CONFIG" | jq -r '.KEEP_SYNC_PLAN // "lifetime"')
           JOB_ENABLED=true
           SKIP_REASON=""
@@ -1701,7 +1701,7 @@ jobs:
       KEEP_CONFIG: ${{ secrets.KEEP_CONFIG }}
       NOTIONHUB_API_BASE: https://i.notionhub.app/v1
       NOTIONHUB_SERVICE: keep
-      NOTIONHUB_CONFIG_VERSION: '31'
+      NOTIONHUB_CONFIG_VERSION: '32'
       SYNC_POLICY_STATE_PATH: ${{ github.workspace }}/notionhub-state.json
       SYNC_POLICY_CONTINUATION_PATH: ${{ github.workspace }}/notionhub-continuation-id
       SYNC_POLICY_REPORT_PATH: ${{ github.workspace }}/notionhub-service-report.json
@@ -1721,7 +1721,7 @@ jobs:
         if: needs.workout.outputs.enabled == 'true' && needs.workout_heatmap.result == 'success' && steps.restore.outcome == 'success'
         continue-on-error: true
         run: |
-          SERVICE_CONFIG='${{ secrets.KEEP_CONFIG }}'
+          SERVICE_CONFIG="$KEEP_CONFIG"
           PLAN=$(printf '%s' "$SERVICE_CONFIG" | jq -r '.KEEP_SYNC_PLAN // "lifetime"')
           JOB_ENABLED=true
           SKIP_REASON=""
