@@ -2558,6 +2558,7 @@ jobs:
               fi
             done
             if [ "$DOWNLOAD_OK" = "true" ]; then
+              rm -rf "${{ github.workspace }}/notionhub-artifacts"
               mkdir -p "${{ github.workspace }}/notionhub-artifacts"
               cp -R "$ATTEMPT_DIR"/. "${{ github.workspace }}/notionhub-artifacts"/
               cleanup_artifact_attempt
